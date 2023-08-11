@@ -1,0 +1,117 @@
+@keyframes slide-in {
+	0% { left: -100%; }
+	100% { left: 0; }
+}
+
+@keyframes slide-out {
+	0% { left: 0; }
+	100% { left: 100%; }
+}
+
+body {
+	background-color: rgba(222, 248, 255, 255);
+	font-size: 24pt;
+	overflow-y: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	padding: 4px;
+	width: 100%;
+	white-space: nowrap;
+}
+
+canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -100;
+}
+
+#controls {
+	width: 12vh;
+	height: 100%;
+	padding: 0 12px;
+	position: fixed;
+	right: 8px;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#controls button {
+	margin: 4px 0;
+	width: 100%;
+	line-height: 0;
+}
+
+button {
+	background-color: white;
+	border: 2px solid black;
+	margin: 0 4px;
+}
+
+button:active {
+	background-color: gray;
+}
+
+button img {
+	pointer-events: none;
+	width: 100%;
+}
+
+.selected {
+	background-color: silver;
+}
+
+.clear {
+	background-color: pink;
+}
+
+.clear:active {
+	background-color: red;
+}
+
+#victory {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: -100%;
+	background-color: rgba(0,0,0,0.9);
+	z-index: 100;
+	color: lime;
+	align-items: center;
+	text-align: center;
+}
+
+#victory h2 {
+	padding: 32px;
+	font-size: 10vmin;
+}
+
+.slideInOut {
+	animation: 0.5s ease-out 0s slide-in forwards, 0.5s ease-in 3s slide-out forwards;
+}
+
+#app {
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+@media only screen and (max-width: 768px) {
+	#controls {
+		width: max(15vw, 15vh);
+	}
+	
+	h2, h3 {
+		font-size: 28pt;
+	}
+	
+	#controls button {
+		border: 1px solid black;
+	}
+}
